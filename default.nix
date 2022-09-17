@@ -14,8 +14,8 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
   colloid-gtk-theme = pkgs.callPackage ./pkgs/colloid-gtk-theme { };
+  v2raya-bin = pkgs.callPackage ./pkgs/v2raya-bin { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }

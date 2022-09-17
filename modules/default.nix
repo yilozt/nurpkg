@@ -1,5 +1,5 @@
 {
   # Add your NixOS modules here
   #
-  # my-module = ./my-module;
+  # v2raya = ./services/v2raya.nix;
 }
