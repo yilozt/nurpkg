@@ -5,7 +5,7 @@
 , inkscape
 , optipng
 , gtk-engine-murrine
-, tweaks ? [ "nord" "dracula" "black" "rimless" "normal" ]
+, tweaks ? [ "nord" "dracula" "black" "rimless" ]
 ,
 }:
 
@@ -52,7 +52,8 @@ stdenv.mkDerivation rec {
           ./install.sh -t all --tweaks ${tweak} -d $out/share/themes
           ./install.sh -t all --tweaks ${tweak} -s compact -d $out/share/themes
         '') tweaks
-      )}
+      )
+    }
 
     runHook postInstall
   '';
