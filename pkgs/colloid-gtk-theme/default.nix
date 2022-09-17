@@ -5,7 +5,11 @@
 , inkscape
 , optipng
 , gtk-engine-murrine
+, tweaks ? [ "nord" "dracula" "black" "rimless" "normal" ]
+,
 }:
+
+with builtins;
 
 stdenv.mkDerivation rec {
   pname = "colloid-gtk-theme";
@@ -36,7 +40,20 @@ stdenv.mkDerivation rec {
     runHook preInstall
     export HOME=$(pwd)
     mkdir -p $out/share/themes
-    unset name && ./install.sh -t all -s standard compact --tweaks nord black rimless normal -d $out/share/themes
+
+    # Ref: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=colloid-gtk-theme-git
+
+    ./install.sh -t all -d $out/share/themes
+    ./install.sh -t all -s compact -d $out/share/themes
+
+    ${
+      concatStringsSep "\n" (
+        map (tweak: ''
+          ./install.sh -t all --tweaks ${tweak} -d $out/share/themes
+          ./install.sh -t all --tweaks ${tweak} -s compact -d $out/share/themes
+        '') tweaks
+      )}
+
     runHook postInstall
   '';
 
