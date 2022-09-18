@@ -1,6 +1,8 @@
+flake: { config, lib, pkgs, ... }:
 
-{ config, lib, ... }:
-
+let
+  inherit (flake.packages.${pkgs.stdenv.hostPlatform.system}) v2raya-bin;
+in
 {
   options = {
     services.v2raya = {
@@ -19,7 +21,7 @@
 
       serviceConfig = {
         User = "root";
-        ExecStart = "${pkgs.v2raya-bin}/bin/v2rayA --log-disable-timestamp";
+        ExecStart = "${v2raya-bin}/bin/v2rayA --log-disable-timestamp";
         LimitNPROC = 500;
         LimitNOFILE = 1000000;
         Restart = "on-failure";

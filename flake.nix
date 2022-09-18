@@ -1,5 +1,5 @@
 {
-  description = "My personal NUR repository";
+  description = "Personal nixpkg repository";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   outputs = { self, nixpkgs }:
     let
@@ -14,8 +14,13 @@
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     in
     {
-      packages = forAllSystems (system: import ./default.nix {
-        pkgs = import nixpkgs { inherit system; };
+      packages = forAllSystems (system: let pkgs = import nixpkgs { inherit system; }; in {
+        v2raya-bin = pkgs.callPackage ./pkgs/v2raya-bin {};
+        colloid-gtk-theme = pkgs.callPackage ./pkgs/colloid-gtk-theme {};
       });
+
+      nixosModules = {
+        v2raya = import ./modules/services/v2raya.nix self;
+      };
     };
 }
