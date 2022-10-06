@@ -18,8 +18,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "vinceliuice";
     repo = "Colloid-gtk-theme";
-    rev = "b32696e42a5174c4ab9a1fcd3a6a79be6e844d40";
-    sha256 = "sha256-dWYRTwfQRMBdg+htxpWatF325rToaovF/43LxX6I1GI=";
+    rev = "b8f6952ef11c2a8375cb48ec8089462885dbaa6b";
+    sha256 = "sha256-qajnICD24NtXZ2GCBI9/Uj0l6X1c8R6GEFhfcYOHT4o=";
   };
 
   nativeBuildInputs = [
