@@ -1,0 +1,51 @@
+diff --git a/src/sass/gnome-shell/common/_quick-settings.scss b/src/sass/gnome-shell/common/_quick-settings.scss
+index 43fe74e4..dbf763cd 100644
+--- a/src/sass/gnome-shell/common/_quick-settings.scss
++++ b/src/sass/gnome-shell/common/_quick-settings.scss
+@@ -17,7 +17,7 @@
+ }
+ 
+ .quick-toggle {
+-  border-radius: $base_radius;
++  border-radius: $circular_radius;
+   min-width: 12em;
+   max-width: 12em;
+   min-height: 40px;
+@@ -72,8 +72,8 @@
+       background-color: $divider !important;
+     }
+ 
+-    &:ltr { border-radius: 0 $base_radius $base_radius 0; }
+-    &:rtl { border-radius: $base_radius 0 0 $base_radius; }
++    &:ltr { border-radius: 0 $circular_radius $circular_radius 0; }
++    &:rtl { border-radius: $circular_radius 0 0 $circular_radius; }
+   }
+ }
+ 
+@@ -115,7 +115,7 @@
+   margin: $base_padding * 2 $base_padding * 3 0;
+ 
+   .popup-menu-item {
+-    border-radius: $base_radius !important;
++    border-radius: $circular_radius !important;
+ 
+     &:focus, &:hover, &.selected {
+       color: $text !important;
+@@ -132,7 +132,7 @@
+ 
+     & .icon {
+       icon-size: $base_icon_size * 1.5; // a non-standard symbolic size but ok
+-      border-radius: $base_radius;
++      border-radius: $circular_radius;
+       padding: 1.5 * $base_padding;
+       background-color: on($popover, divider) !important;
+ 
+@@ -161,7 +161,7 @@
+   .icon-button {
+     background-color: $button;
+     color: $text;
+-    border-radius: $base_radius;
++    border-radius: $circular_radius;
+     @extend %button;
+ 
+     > StIcon { -st-icon-style: symbolic; }

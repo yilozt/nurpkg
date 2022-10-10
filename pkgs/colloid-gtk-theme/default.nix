@@ -22,6 +22,10 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-qajnICD24NtXZ2GCBI9/Uj0l6X1c8R6GEFhfcYOHT4o=";
   };
 
+  patches = [
+    ./circular_radius_quick_settings.diff
+  ];
+
   nativeBuildInputs = [
     sassc
     inkscape
