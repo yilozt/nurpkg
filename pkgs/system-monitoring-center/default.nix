@@ -11,6 +11,7 @@ pkgs.python3Packages.buildPythonApplication rec {
     python3Packages.pygobject3
     gobject-introspection
     girara
+    gnome.adwaita-icon-theme
     wrapGAppsHook
   ];
 
