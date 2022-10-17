@@ -19,6 +19,7 @@
         {
           v2raya-bin = pkgs.callPackage ./pkgs/v2raya-bin { };
           colloid-gtk-theme = pkgs.callPackage ./pkgs/colloid-gtk-theme { };
+          system-monitoring-center = pkgs.callPackage ./pkgs/system-monitoring-center { };
         });
 
       nixosModules = {
