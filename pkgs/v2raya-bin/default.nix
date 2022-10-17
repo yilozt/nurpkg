@@ -1,12 +1,17 @@
 { lib
 , stdenv
-, v2ray
-, iptables
 , bash
 , makeWrapper
 , fetchFromGitHub
 , fetchurl
 }:
+
+
+let
+  inherit ((builtins.getFlake
+    "github:NixOS/nixpkgs/8de8b98839d1f20089582cfe1a81207258fcc1f1").legacyPackages.${stdenv.system})
+    v2ray iptables; # fetch v2ray 4
+in
 
 stdenv.mkDerivation {
   name = "v2raya-bin";
